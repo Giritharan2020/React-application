@@ -13,12 +13,12 @@ const avatarStyle={backgroundColor:'#1bbd7e'}
 const btnstyle={margin:'8px 0'}
 
 const initialValues={
-  username:'',
+  email:'',
   password:'',
   remember:false
 }
 const validationSchema=Yup.object().shape({
-  username: Yup
+  email: Yup
   .string()
   .label("Email")
   .email()
@@ -62,9 +62,9 @@ return(
          <Formik initialValues={initialValues} onSubmit={onSubmit} validationSchema={validationSchema}>
            {(props)=>(
              <Form>
-                <Field as={TextField} label='Username' name="username" 
-                placeholder='Enter username' fullWidth required
-                helperText={<ErrorMessage name="username"/>}/>
+                <Field as={TextField} label='Email' name="email" 
+                placeholder='Enter email' fullWidth required
+                helperText={<ErrorMessage name="email"/>}/>
                   <Field as={TextField} label='Password'name="password"
                    placeholder='Enter password' type='password' fullWidth required
                    helperText={<ErrorMessage name="password"/>}/>
