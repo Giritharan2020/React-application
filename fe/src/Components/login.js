@@ -46,12 +46,18 @@ const onSubmit=(values,props)=>{
     data: values,
 })
     .then(response => {
-        console.log(response.data)
+        console.log(response.data[0].password)
+        const keypair = response.data[0].password;
+        if(keypair === values.password){
+          console.log('passwords match')}
+          else{console.log('does not match')
+        }
+        
     })
     .catch(error => console.log(error))
-    alert(' Login sucessfully.');
-
+    alert(' Login sucessfully.'); 
 }
+
 return(
   <Grid>
       <Paper  style={paperStyle}>
