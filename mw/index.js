@@ -38,14 +38,14 @@ app.post("/signup", async function(req, res,){
 });
 
 app.post("/login", async function(req, res){
-    // const { email, password } = req.body;
-    console.log(req.body)
-    // const { email, password } = body;
-    // const controller = new sigupservice();
-    // const result = await controller.login(email, password);
-    // console.log('result', result);
-    const Data = req.body
-    res.send(Data);
+    const { body } = req;
+    // console.log(body)
+    const { email } = body;
+    const controller = new sigupservice();
+    const result = await controller.login(email);
+    console.log('result', result)
+    res.send(result);
+   
 })
 
 
@@ -58,9 +58,9 @@ class sigupservice {
         return performTransaction(batch);
     }
     
-    login(email, password){
-        const stmt = 'select * from isvalidlogin($<email>, $<password>)';
-        const values = { email, password };
+    login(email){
+        const stmt = 'select * from isvalidlogin($<email>)';
+        const values = { email };
         // console.log(email);
         return performSelect(stmt, values);
       }
