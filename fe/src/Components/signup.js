@@ -69,10 +69,11 @@ const onSubmit=(values,props)=>{
         data: values,
     })
         .then(response => {
+            alert(response.data);
             console.log(response)
         })
         .catch(error => console.log(error))
-        alert('You have signup sucessfully.');
+        // alert('You have signup sucessfully.');
 }
   
 return(

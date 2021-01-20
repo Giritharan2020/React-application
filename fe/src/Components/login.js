@@ -46,16 +46,10 @@ const onSubmit=(values,props)=>{
     data: values,
 })
     .then(response => {
-        console.log(response.data[0].password)
-        const keypair = response.data[0].password;
-        if(keypair === values.password){
-          console.log('passwords match')}
-          else{console.log('does not match')
-        }
-        
-    })
+        console.log(response)
+           alert(response.data);
+        })      
     .catch(error => console.log(error))
-    alert(' Login sucessfully.'); 
 }
 
 return(
@@ -84,7 +78,7 @@ return(
                     }
                     label="Remember me"
                     />
-          <Button type='Submit'  variant="contained" color="primary" disable={props.isSubmitting}
+          <Button type='Submit' li  variant="contained" color="primary" disable={props.isSubmitting}
           style={btnstyle} fullWidth>{props.isSubmitting?"Loading":"Sign in"}</Button>
                    
              </Form>
