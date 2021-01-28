@@ -7,7 +7,8 @@ import {Formik, Form, Field, ErrorMessage} from 'formik'
 import * as Yup from 'yup'
 import axios from 'axios'
 
-const Signup=({handleChange})=>{
+const Signup=()=>{
+
 const paperStyle={padding: 20,width:300, margin:"0 auto"}
 const headerStyle={margin:0}
 const avatarStyle={backgroundColor:'#1bbd7e'}
@@ -107,13 +108,13 @@ return(
                 )}
             </Formik>
             <Typography> Do you have an account ?
-            <Link href="" onClick={()=>handleChange("event",0)}>
-            Sign In
-          </Link>
-        </Typography>
+            {/* <Link href="" onClick={()=>handleChange("event",0)}> */}
+            <Link href={"/login"}>Sign In</Link>
+             </Typography>
             </Paper>
         </Grid>
 
     )
 }
+
 export default Signup;
